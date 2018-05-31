@@ -6,7 +6,7 @@
 
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/itemTitle"
         android:layout_width="wrap_content"
         android:layout_height="63dp"
         android:textColor="#000000"
@@ -14,8 +14,8 @@
         android:textStyle="bold" />
 
     <TextView
-        android:layout_toRightOf="@+id/title"
-        android:id="@+id/scentSize"
+        android:layout_toRightOf="@+id/itemTitle"
+        android:id="@+id/itemScentSize"
         android:layout_width="wrap_content"
         android:layout_height="63dp"
         android:textColor="#42d984"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
+            android:id="@+id/itemScentImage"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
@@ -37,30 +37,29 @@
             app:civ_border_width="2dp" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/itemScentName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_image"
+            android:layout_below="@+id/itemScentImage"
             android:layout_centerHorizontal="true"
-            android:text="Hello"
             android:gravity="center"
             android:textColor="#000000"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/hashtag"
+            android:id="@+id/itemScentInfo1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name"
+            android:layout_below="@+id/itemScentName"
             android:layout_centerHorizontal="true"
             android:gravity="center" />
 
         <TextView
-            android:id="@+id/hashtag2"
+            android:id="@+id/itemScentInfo2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/hashtag"
+            android:layout_below="@+id/itemScentInfo1"
             android:layout_centerHorizontal="true"
             android:gravity="center" />
 
