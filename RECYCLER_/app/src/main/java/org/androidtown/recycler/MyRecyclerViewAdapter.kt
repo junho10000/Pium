@@ -9,8 +9,6 @@ import java.util.ArrayList
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
 
 //RecyclerView.adapter를 상속받은 Class// Main에서 mainRecyclerView.adapter로 mapping시킨다
-
-
 class MyRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //아이템들의 배열
@@ -38,7 +36,7 @@ class MyRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
     {
-        //XML 디자인한 부분에 안에 내용 변경 (image, name, hashtag, hashtag2)
+        //XML 디자인한 부분에 안에 내용 변경 (image, name, info1, info2)
         if ( position == 0 )
         {
             var Size: Int = memberDTOs.size
