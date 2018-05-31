@@ -5,11 +5,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-
 import java.util.ArrayList
-
-import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.recyclerview_item.view.*
 
 //RecyclerView.adapter를 상속받은 Class// Main에서 mainRecyclerView.adapter로 mapping시킨다
 
@@ -31,40 +28,32 @@ class MyRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         memberDTOs.add(MemberDTO(R.drawable.img_08, "Lavandula", "#Lavandula", "#depression"))
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder
     {
         //XML 디자인 한 부분 적용
         var view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item, parent, false)
 
-        return RowCell(view)
+        return ItemCell(view)
     }
-
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
     {
         //XML 디자인한 부분에 안에 내용 변경 (image, name, hashtag, hashtag2)
-
         if ( position == 0 )
         {
             var Size: Int = memberDTOs.size
-            (holder as RowCell).title.text = "My Scent "
+            (holder as ItemCell).title.text = "My Scent "
             holder.scentSize.text = "$Size"
-            holder.name.maxHeight = 0
-            holder.hashtag.maxHeight = 0
-            holder.hashtag2.maxHeight = 0
-
-
+            holder.scentName.maxHeight = 0
+            holder.scentInfo1.maxHeight = 0
+            holder.scentInfo2.maxHeight = 0
         } else
         {
-            (holder as RowCell).circleImageView.setImageResource(memberDTOs[position-1].image)
-            holder.name.text = memberDTOs[position-1].name
-            holder.hashtag.text = memberDTOs[position-1].hashtag
-            holder.hashtag2.text = memberDTOs[position-1].hashtag2
-
+            (holder as ItemCell).scentImage.setImageResource(memberDTOs[position-1].m_Image)
+            holder.scentName.text = memberDTOs[position-1].m_Name
+            holder.scentInfo1.text = memberDTOs[position-1].m_Info1
+            holder.scentInfo2.text = memberDTOs[position-1].m_Info2
         }
-
-
     }
 
     override fun getItemCount(): Int
@@ -73,24 +62,13 @@ class MyRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return memberDTOs.size + 1
     }
 
-
-    private class RowCell(view: View) : RecyclerView.ViewHolder(view)
+    private class ItemCell(view: View) : RecyclerView.ViewHolder(view)
     {
-        var title: TextView
-        var scentSize: TextView
-        var circleImageView: CircleImageView
-        var name: TextView
-        var hashtag: TextView
-        var hashtag2: TextView
-
-        init
-        {
-            title = view.findViewById(R.id.itemTitle)
-            scentSize = view.findViewById(R.id.itemScentSize)
-            circleImageView = view.findViewById(R.id.itemScentImage)
-            name = view.findViewById(R.id.itemScentName)
-            hashtag = view.findViewById(R.id.itemScentInfo1)
-            hashtag2 = view.findViewById(R.id.itemScentInfo2)
-        }
+        var title = view.itemTitle
+        var scentSize = view.itemScentSize
+        var scentImage = view.itemScentImage
+        var scentName = view.itemScentName
+        var scentInfo1 = view.itemScentInfo1
+        var scentInfo2 = view.itemScentInfo2
     }
 }
